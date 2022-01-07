@@ -1,0 +1,10 @@
+.env
+.idea
+node_modules
+
+storybook-static
+dist*
+
+.yarn/*
+!.yarn/plugins
+!.yarn/releases

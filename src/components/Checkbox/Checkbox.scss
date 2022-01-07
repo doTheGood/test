@@ -1,0 +1,91 @@
+@mixin checkbox-disabled {
+  &.checkbox_disabled {
+    @content;
+  }
+}
+
+@mixin checkbox-hover {
+  input:hover ~ svg {
+    @content;
+  }
+}
+
+@mixin checkbox-focused {
+  &.checkbox_focused {
+    @content;
+  }
+}
+
+.checkbox {
+  @apply tag-inline-flex tag-justify-center tag-items-center tag-p-0;
+
+  &:hover {
+    @apply tag-bg-transparent;
+  }
+
+  @include checkbox-focused {
+    &::after {
+      content: ' ';
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      @apply tag-border tag-border-grey-rich-dark tag-rounded-4;
+    }
+  }
+
+  @include checkbox-disabled {
+    cursor: not-allowed;
+  }
+}
+
+.checkbox_checked {
+  .checkbox__icon-bg {
+    fill: theme('colors.black.DEFAULT');
+    stroke: theme('colors.black.DEFAULT');
+  }
+
+  .checkbox__icon-check {
+    fill: theme('colors.white.DEFAULT');
+  }
+
+  @include checkbox-hover {
+    .checkbox__icon-bg {
+      fill: theme('colors.grey.500');
+      stroke: theme('colors.grey.500');
+    }
+  }
+
+  @include checkbox-disabled {
+    .checkbox__icon-bg {
+      fill: theme('colors.grey.rich-medium');
+      stroke: theme('colors.grey.rich-medium');
+    }
+
+    .checkbox__icon-check {
+      fill: theme('colors.teal.50');
+    }
+  }
+}
+
+.checkbox:not(.checkbox_checked) {
+  .checkbox__icon-bg {
+    fill: theme('colors.white.DEFAULT');
+    stroke: theme('colors.grey.rich-medium');
+  }
+
+  @include checkbox-hover {
+    .checkbox__icon-bg {
+      fill: theme('colors.grey.rich-extra-light');
+      stroke: theme('colors.grey.rich-medium');
+    }
+  }
+
+  @include checkbox-disabled {
+    .checkbox__icon-bg {
+      fill: theme('colors.grey.50');
+      stroke: theme('colors.grey.100');
+    }
+  }
+}

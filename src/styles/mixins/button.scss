@@ -1,0 +1,53 @@
+@use 'utils' as *;
+
+@mixin button-border-radius($border-radius) {
+  border-radius: $border-radius;
+
+  @include button-focus {
+    @include button-focus-outer-border-content {
+      border-radius: $border-radius + 2;
+    }
+  }
+}
+
+@mixin button-hover {
+  &:hover:not(.button_disabled):not(:active) {
+    @content;
+  }
+}
+
+@mixin button-focus {
+  @include focus-visible(':not(.button_disabled):not(:active)') {
+    @content;
+  }
+}
+
+@mixin button-focus-outer-border-content() {
+  &:before {
+    @content;
+  }
+}
+
+@mixin button-focus-outer-border($border-margin) {
+  @include button-focus-outer-border-content {
+    content: ' ';
+    position: absolute;
+    top: -$border-margin;
+    left: -$border-margin;
+    right: -$border-margin;
+    bottom: -$border-margin;
+    border-width: 2px;
+  }
+}
+
+@mixin button-disabled {
+  &.button_disabled {
+    @content;
+  }
+}
+
+@mixin button-active {
+  &:active:not(.button_disabled) {
+    @content;
+  }
+}

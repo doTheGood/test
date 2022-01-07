@@ -1,0 +1,253 @@
+/*
+  BEM methodology is using for css class names,
+  https://en.bem.info/methodology/css/
+*/
+
+@use '../../styles/mixins/button' as *;
+
+/* Mixins */
+
+@mixin button-size($size) {
+  height: $size;
+
+  &.button_content_icon {
+    width: $size;
+  }
+}
+
+@mixin button-padding($content-padding, $content-icon-padding) {
+  &.button_content_label {
+    padding: 0 $content-padding;
+  }
+
+  &.button_content_label-icon {
+    padding: 0 $content-padding;
+  }
+
+  &.button_content_icon {
+    padding: 0 $content-icon-padding;
+  }
+}
+
+@mixin button-icon-size($size) {
+  .button__icon > svg {
+    font-size: $size;
+  }
+}
+
+/* Elements */
+
+.button {
+  position: relative;
+  justify-content: center;
+  display: inline-flex;
+  align-items: center;
+
+  transition: background-color, box-shadow 0.3s ease-in-out;
+
+  @apply tag-cursor-pointer tag-no-underline tag-outline-none;
+
+  @include button-focus {
+    @include button-focus-outer-border-content {
+      @apply tag-border-primary-200;
+    }
+  }
+
+  @include button-disabled {
+    @apply tag-cursor-default;
+  }
+}
+
+.button__icon {
+  display: inline-flex;
+}
+
+/* Button Contents */
+
+.button_content_icon {
+  justify-content: center;
+}
+
+.button_content_label-icon {
+  &.button_icon-position_start {
+    .button__icon {
+      @apply tag-mr-3;
+    }
+  }
+
+  &.button_icon-position_end {
+    .button__icon {
+      @apply tag-ml-3;
+    }
+  }
+}
+
+/* Button Sizes */
+
+.button_size_large {
+  @include button-size(48px);
+  @include button-padding(32px, 12px);
+  @include button-border-radius(8px);
+  @include button-icon-size(24px);
+
+  .button__label {
+    @apply tag-text-button-18;
+  }
+}
+
+.button_size_medium {
+  @include button-size(40px);
+  @include button-padding(16px, 8px);
+  @include button-border-radius(8px);
+  @include button-icon-size(24px);
+
+  .button__label {
+    @apply tag-text-button-16;
+  }
+}
+
+.button_size_small {
+  @include button-size(32px);
+  @include button-padding(8px, 6px);
+  @include button-border-radius(8px);
+  @include button-icon-size(16px);
+
+  .button__label {
+    @apply tag-text-button-14;
+  }
+}
+
+/* Button Variants */
+
+.button_variant_primary {
+  @apply tag-text-white-rich tag-bg-primary-400;
+
+  @include button-hover {
+    @apply tag-bg-primary-600;
+  }
+
+  @include button-focus {
+    @apply tag-bg-primary-400;
+    @include button-focus-outer-border($border-margin: 4px);
+  }
+
+  @include button-disabled {
+    @apply tag-bg-secondary-50;
+  }
+
+  @include button-active {
+    @apply tag-bg-primary-200;
+  }
+}
+
+.button_variant_secondary {
+  @apply tag-text-white tag-bg-secondary-400;
+
+  @include button-hover {
+    @apply tag-bg-secondary-500;
+  }
+
+  @include button-focus {
+    @apply tag-bg-secondary-400;
+    @include button-focus-outer-border($border-margin: 4px);
+  }
+
+  @include button-disabled {
+    @apply tag-bg-secondary-50;
+  }
+
+  @include button-active {
+    @apply tag-bg-secondary-200;
+  }
+}
+
+.button_variant_tertiary {
+  @apply tag-text-secondary-500  tag-bg-white;
+
+  @include button-hover {
+    @apply tag-bg-neutrals-100;
+  }
+
+  @include button-focus {
+    @apply tag-bg-white;
+    @include button-focus-outer-border($border-margin: 6px);
+  }
+
+  @include button-disabled {
+    @apply tag-text-grey-400 tag-border-secondary-200;
+  }
+
+  @include button-active {
+    @apply tag-bg-secondary-50;
+  }
+}
+
+.button_variant_ghost {
+  @apply tag-text-black-rich;
+
+  &.button_content_icon {
+    @apply tag-text-grey-rich-dark;
+  }
+
+  @include button-hover {
+    @apply tag-bg-black-rich tag-bg-opacity-5;
+
+    .button__icon {
+      @apply tag-text-grey-700;
+    }
+  }
+
+  @include button-focus {
+    @apply tag-bg-black-rich tag-bg-opacity-5;
+    @include button-focus-outer-border($border-margin: 4px);
+
+    .button__icon {
+      @apply tag-text-grey-700;
+    }
+  }
+
+  @include button-disabled {
+    @apply tag-text-grey-400;
+  }
+
+  @include button-active {
+    @apply tag-bg-black-rich tag-bg-opacity-10;
+
+    .button__icon {
+      @apply tag-text-grey-600;
+    }
+  }
+}
+
+.button_variant_ghost-white {
+  @apply tag-text-white-rich;
+
+  @include button-hover {
+    @apply tag-bg-white-rich tag-bg-opacity-15;
+
+    .button__icon {
+      @apply tag-text-grey-700;
+    }
+  }
+
+  @include button-focus {
+    @apply tag-bg-white-rich tag-bg-opacity-15;
+    @include button-focus-outer-border($border-margin: 4px);
+
+    .button__icon {
+      @apply tag-text-grey-700;
+    }
+  }
+
+  @include button-disabled {
+    @apply tag-text-grey-400;
+  }
+
+  @include button-active {
+    @apply tag-bg-white-rich tag-bg-opacity-20;
+
+    .button__icon {
+      @apply tag-text-grey-600;
+    }
+  }
+}

@@ -1,0 +1,26 @@
+// TODO: this file should probably be rather a scrollbar tailwind plugin
+
+.thin-scrollbar {
+  &::-webkit-scrollbar {
+    @apply tag-w-3;
+  }
+
+  &::-webkit-scrollbar-track {
+    @apply tag-bg-transparent tag-my-1;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    @apply tag-border-4 tag-border-solid tag-border-transparent tag-rounded-20;
+    @apply tag-bg-clip-content tag-bg-grey-rich-dark;
+  }
+}
+
+.thin-scrollbar_small {
+  &::-webkit-scrollbar {
+    @apply tag-w-2;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    @apply tag-border-2 tag-border-solid tag-border-transparent;
+  }
+}

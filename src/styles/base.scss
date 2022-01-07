@@ -1,0 +1,71 @@
+html {
+  scroll-behavior: smooth;
+  height: 100%;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  height: 100%;
+
+  @apply tag-text-black-rich;
+  @apply tag-text-body-normal-16;
+
+  @apply tag-bg-white-background;
+}
+
+/*  app-insights-wrapper class is assigned to the App Insights wrapper, which
+    is inserted as a child of #root when App Insights are active.
+    This css is necessary is order to ensure that the height of the
+    parent divs is preserved to the level where the layout rendered,
+    where the footer requires at least a height of 100% to be pinned to the bottom of the screen.
+*/
+#root,
+.app-insights-wrapper {
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  -webkit-overflow-scrolling: touch; // scrolling improvement for ios devices
+  overflow: auto;
+}
+
+code {
+  @apply tag-font-mono;
+}
+
+h1 {
+  @apply tag-text-header-1;
+}
+
+h2 {
+  @apply tag-text-header-2;
+}
+
+h3 {
+  @apply tag-text-header-3;
+}
+
+h4 {
+  @apply tag-text-header-4;
+}
+
+h5 {
+  @apply tag-text-header-5;
+}
+
+h6 {
+  @apply tag-text-header-6;
+}
+
+a {
+  @apply tag-text-hyperlink-16;
+}
+
+button {
+  &:focus {
+    @apply tag-outline-none;
+  }
+}
