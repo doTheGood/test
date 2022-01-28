@@ -1,0 +1,10 @@
+.input-label {
+  @apply tag-block tag-text-body-bold-16 tag-mb-2;
+}
+
+.input-label_required {
+  &:after {
+    content: '*';
+    @apply tag-text-red-500 tag-ml-1;
+  }
+}

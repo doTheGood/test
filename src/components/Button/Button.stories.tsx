@@ -42,6 +42,7 @@ export default {
     },
   },
   parameters: {
+    layout: 'centered',
     // docs: { page: null },
     options: { showPanel: true },
   },
@@ -234,4 +235,8 @@ LinkPrimary.args = {
   label: 'Link',
   href: 'https://www.google.com',
   target: '_blank',
+};
+
+LinkPrimary.parameters = {
+  layout: 'centered',
 };

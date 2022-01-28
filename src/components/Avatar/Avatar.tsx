@@ -23,9 +23,22 @@ export const Avatar: React.FC<AvatarProps> = ({
     'tag-rounded-full',
     'tag-text-black',
     'tag-bg-grey-50',
-    'tag-font-normal',
+    'tag-font-light',
     'tag-cursor-default',
   );
+
+  // const initialsAvatarCN = tw(
+  //   'tag-w-9',
+  //   'tag-h-9',
+  //   'tag-flex',
+  //   'tag-items-center',
+  //   'tag-justify-center',
+  //   'tag-rounded-full',
+  //   'tag-text-black',
+  //   'tag-bg-grey-50',
+  //   'tag-font-light',
+  //   'tag-cursor-default',
+  // );
 
   return (
     <>

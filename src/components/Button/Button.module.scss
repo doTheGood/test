@@ -85,7 +85,7 @@
 /* Button Sizes */
 
 .button_size_large {
-  @include button-size(48px);
+  @include button-size(56px);
   @include button-padding(32px, 12px);
   @include button-border-radius(8px);
   @include button-icon-size(24px);
@@ -162,43 +162,43 @@
 }
 
 .button_variant_tertiary {
-  @apply tag-text-secondary-500  tag-bg-white;
+  @apply tag-text-secondary-500  tag-bg-white tag-border-secondary-200 tag-border-2;
 
   @include button-hover {
-    @apply tag-bg-neutrals-100;
+    @apply tag-bg-secondary-50;
   }
 
   @include button-focus {
-    @apply tag-bg-white;
+    @apply tag-bg-white tag-border-transparent tag-border-2;
     @include button-focus-outer-border($border-margin: 6px);
   }
 
   @include button-disabled {
-    @apply tag-text-grey-400 tag-border-secondary-200;
+    @apply tag-text-grey-400 tag-border-secondary-200 tag-border-2;
   }
 
   @include button-active {
-    @apply tag-bg-secondary-50;
+    @apply tag-bg-neutrals-100 tag-border-transparent tag-border-2;
   }
 }
 
 .button_variant_ghost {
-  @apply tag-text-black-rich;
+  @apply tag-text-secondary-500;
 
   &.button_content_icon {
-    @apply tag-text-grey-rich-dark;
+    @apply tag-text-secondary-500;
   }
 
   @include button-hover {
-    @apply tag-bg-black-rich tag-bg-opacity-5;
+    @apply tag-bg-secondary-50;
 
     .button__icon {
-      @apply tag-text-grey-700;
+      @apply tag-text-secondary-500;
     }
   }
 
   @include button-focus {
-    @apply tag-bg-black-rich tag-bg-opacity-5;
+    @apply tag-bg-transparent;
     @include button-focus-outer-border($border-margin: 4px);
 
     .button__icon {
@@ -211,7 +211,7 @@
   }
 
   @include button-active {
-    @apply tag-bg-black-rich tag-bg-opacity-10;
+    @apply tag-bg-neutrals-100;
 
     .button__icon {
       @apply tag-text-grey-600;

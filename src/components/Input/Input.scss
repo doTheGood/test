@@ -1,0 +1,50 @@
+/* Elements */
+
+.input {
+  @apply tag-bg-white tag-placeholder-black-rich tag-px-4;
+  @apply tag-border tag-rounded-4 tag-border-grey-rich-medium;
+}
+
+.input__input {
+  padding: 10px 0;
+}
+
+.input__action-button {
+  .button_size_small{
+    border-radius: 4px;
+  }
+  @apply tag-ml-1;
+}
+
+.input__explanatory-icon {
+  @apply tag-inline-flex tag-text-grey-300 tag-mr-2.5;
+
+  > svg {
+    font-size: 18px;
+  }
+}
+
+/* Modifiers */
+
+.input_focused {
+  // can be replaced to @apply caret-teal-600 once it will work
+  // caret-color: theme('colors.teal.600');
+  caret-color:black;
+  @apply tag-border-black-rich;
+}
+
+.input_error {
+  @apply tag-border-red-500;
+}
+
+.input_disabled {
+  @apply tag-border-grey-200 tag-bg-grey-50;
+}
+
+.input_adorned_end {
+  @apply tag-pr-1;
+}
+
+.input_multiline {
+  @apply tag-px-4 tag-py-0;
+}

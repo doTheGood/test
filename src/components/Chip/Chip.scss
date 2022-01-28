@@ -1,0 +1,129 @@
+@use '../../styles/mixins/utils.scss' as *;
+
+/* Mixins */
+
+@mixin chip-button-hover {
+  &:not(.chip_disabled) {
+    .chip__button:hover:not(:active) {
+      @content;
+    }
+  }
+}
+
+@mixin chip-button-focus {
+  &:not(.chip_disabled) {
+    .chip__button {
+      @include focus-visible(':not(:active)') {
+        @content;
+      }
+    }
+  }
+}
+
+@mixin chip-button-active {
+  &:not(.chip_disabled) {
+    .chip__button:active {
+      @content;
+    }
+  }
+}
+
+/* Elements */
+
+.chip {
+  @apply tag-flex tag-items-center tag-gap-1;
+  @apply tag-border-2;
+
+  border-radius: 14px;
+
+  height: 28px;
+  padding-left: 12px;
+  padding-right: 2px;
+}
+
+.chip__label {
+  @apply tag-text-label-large;
+}
+
+.chip__badge {
+  @apply tag-text-label-large;
+}
+
+.chip__button {
+  @apply tag-inline-flex tag-items-center tag-justify-center;
+  @apply tag-rounded-full;
+
+  width: 20px;
+  height: 20px;
+
+  transition: background-color 0.3s ease-in-out;
+
+  > svg {
+    font-size: 16px;
+  }
+}
+
+.chip_disabled {
+  .chip__button {
+    @apply tag-cursor-default;
+  }
+}
+
+/* Variants */
+
+.chip_variant_picked,
+.chip_variant_suggested {
+  @apply tag-bg-white-rich tag-text-black tag-border-black-rich;
+
+  &.chip_disabled {
+    @apply tag-bg-grey-50 tag-border-grey-300 tag-text-grey-400;
+  }
+
+  .chip__badge {
+    @apply tag-text-grey-600;
+  }
+
+  @include chip-button-hover {
+    @apply tag-bg-grey-100;
+  }
+
+  @include chip-button-focus {
+    @apply tag-bg-grey-100 tag-border-2 tag-border-grey-rich-dark;
+  }
+
+  @include chip-button-active {
+    @apply tag-bg-grey-200;
+  }
+}
+
+.chip_variant_suggested {
+  // @apply tag-border-dashed;
+}
+
+.chip_variant_selected {
+  @apply tag-bg-black-background tag-text-white-rich tag-border-transparent;
+
+  &.chip_disabled {
+    @apply tag-bg-grey-300 tag-text-grey-100;
+
+    .chip__badge {
+      @apply tag-text-grey-100;
+    }
+  }
+
+  .chip__badge {
+    @apply tag-text-black-rich;
+  }
+
+  @include chip-button-hover {
+    @apply tag-text-black-rich;
+  }
+
+  @include chip-button-focus {
+    @apply tag-text-black-rich;
+  }
+
+  @include chip-button-active {
+    @apply tag-text-black-rich;
+  }
+}

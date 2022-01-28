@@ -10,6 +10,7 @@
     "lodash": "4.17.21",
     "react": "17.0.2",
     "react-dom": "17.0.2",
+    "styled-components": "^5.3.3",
     "uuid": "8.3.2"
   },
   "peerDependencies": {
@@ -31,7 +32,8 @@
     "test:watch": "jest --watch",
     "test": "jest",
     "typecheck": "tsc --noEmit",
-    "storybook-docs": "start-storybook --docs --no-manager-cache"
+    "storybook-docs": "start-storybook --docs --no-manager-cache",
+    "chromatic": "npx chromatic --project-token=e20480b45816"
   },
   "devDependencies": {
     "@babel/cli": "7.15.7",

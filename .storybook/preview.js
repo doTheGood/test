@@ -10,7 +10,12 @@ export const parameters = {
   layout: 'centered',
   options: {
     storySort: {
-      order: ['Getting Started', 'Components'],
+      order: ['Getting Started', 'Components', [
+        'Button', 
+        'Input', 
+        'Checkbox',
+        'Avatar',
+      ]],
       // order: ['Getting Started', 'Components', ['Home', 'Login', 'Admin']],
     },
   },
